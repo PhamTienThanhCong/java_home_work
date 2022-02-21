@@ -1,5 +1,8 @@
-## java home work
+## Java home work
 - Bài tập lập trình java
+- Phần mền biên dịch: 
+  - Visual studio code 
+  - Eclipse
 
 ### Thông tin
 - học phần: Lập trình hướng đối tượng_1.2(14IT).2_LT
