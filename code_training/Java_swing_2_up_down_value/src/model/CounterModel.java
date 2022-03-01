@@ -19,4 +19,8 @@ public class CounterModel {
 		this.counter--;
 	}
 	
+	public void ResetCounter() {
+		this.counter = 0;
+	}
+	
 }
