@@ -5,13 +5,13 @@ import java.io.IOException;
 public class Bai2{
 
     public static int[][] first;
-    public static int[][] secont;
+    public static int[][] second;
     public static int firstX;
     public static int firstY;
 
-    static void readFile() throws IOException {
+    static void readFile(String src) throws IOException {
         BufferedReader reader;
-        reader = new BufferedReader(new FileReader("matrix.txt"));
+        reader = new BufferedReader(new FileReader(src));
     
         String firstDimension = reader.readLine();
         String[] split = firstDimension.split(" ");
@@ -19,22 +19,17 @@ public class Bai2{
         firstY = Integer.parseInt(split[0]);
     
         first = new int[firstX][firstY];
-        secont = new int[firstX][firstY];
+        second = new int[firstX][firstY];
     
         for (int i = 0; i < firstX; i++) {
             String[] line = reader.readLine().split(" ");
     
             for (int j = 0; j < firstY; j++) {
                 first[i][j] = Integer.parseInt(line[j]);
-            }
-    
-        }
- 
-        for (int i = 0; i < firstX; i++) {
-            String[] line = reader.readLine().split(" ");
-    
-            for (int j = 0; j < firstY; j++) {
-                secont[i][j] = Integer.parseInt(line[j]);
+
+                if (i>=firstX){
+                    second[i-firstX][j] = Integer.parseInt(line[j]);
+                }
             }
     
         }
@@ -86,17 +81,22 @@ public class Bai2{
     }
 
     public static void main(String[] args) throws IOException {
-        readFile();
+        readFile("matrix.txt");
         System.out.println("Matrix 1");
+
         PrintMatrix(first);
         System.out.println("Matrix 2");
-        PrintMatrix(secont);
+
+        PrintMatrix(second);
         System.out.println("Matrix 1+ Matrix 2");
-        int[][] sum2matrix = Add2Matrix(first,secont);
+
+        int[][] sum2matrix = Add2Matrix(first,second);
         PrintMatrix(sum2matrix);
+
         System.out.println("Matrix 1 * Matrix 2");
-        int[][] Multi2Matrix = Multi2Matrix(first,secont);
+        int[][] Multi2Matrix = Multi2Matrix(first,second);
         PrintMatrix(Multi2Matrix);
+        
         System.out.println("Matrix 1 chuyen vi");
         int[][] MatrixChuyenVi = MatrixChuyenVi(first);
         PrintMatrix(MatrixChuyenVi);
