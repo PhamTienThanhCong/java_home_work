@@ -21,13 +21,13 @@ public class Bai2{
         first = new int[firstX][firstY];
         second = new int[firstX][firstY];
     
-        for (int i = 0; i < firstX; i++) {
+        for (int i = 0; i < firstX*2; i++) {
             String[] line = reader.readLine().split(" ");
     
             for (int j = 0; j < firstY; j++) {
-                first[i][j] = Integer.parseInt(line[j]);
-
-                if (i>=firstX){
+                if (i<firstX){
+                    first[i][j] = Integer.parseInt(line[j]);
+                }else{
                     second[i-firstX][j] = Integer.parseInt(line[j]);
                 }
             }
