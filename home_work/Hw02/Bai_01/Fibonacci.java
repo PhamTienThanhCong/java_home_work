@@ -11,11 +11,11 @@ public class Fibonacci {
             currentValue = prevValue + currentValue;
             prevValue = temp;
             sum += currentValue;
-        }
+        }System.out.println(currentValue);
         return sum;
     }
     public static void main(String[] args) {
-        long n = findSum(100L);
+        long n = findSum(90L);
         System.out.println(n);
     }
 }
