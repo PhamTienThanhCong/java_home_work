@@ -1,32 +1,73 @@
+import java.math.*;
 class Point {
-    private Double x;
-    private Double y;
+    private double x;
+    private double y;
     
     // Câu a
-    public Point(Double x, Double y) {
+    public Point(double x, double y) {
         this.x = x;
         this.y = y;
     }
     
     // câu b
-    public Double getX() {
+    public double getX() {
         return this.x;
     }
 
-    public void setX(Double x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public Double getY() {
+    public double getY() {
         return this.y;
     }
 
-    public void setY(Double y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    boolean CheckAlignment(Point point2, Point point3){
-        return true;
+    public static double Length2Poin(Point point1, Point point2){
+        return Math.sqrt((((point1.getX()-point2.getX())*(point1.getX()-point2.getX())+(point1.getY()-point2.getY())*(point1.getY()-point2.getY()))));
+    }
+
+    public static boolean CheckAlignment(Point point1 ,Point point2, Point point3){
+        double a = Length2Poin(point1,point2);
+        double b = Length2Poin(point2,point3);
+        double c = Length2Poin(point1,point3);
+        if ((a + b == c) || (c + b == a) || (a + c == b)){
+            return true;
+        }
+        return false;
+    }
+
+    public static double ChuViTamGia(Point point1, Point point2, Point point3){
+        if  (!CheckAlignment(point1, point2, point3)){
+            double a = Length2Poin(point1,point2);
+            double b = Length2Poin(point2,point3);
+            double c = Length2Poin(point1,point3);
+            return a+b+c;
+        }
+        return 0;
+    }
+
+    public static double DienTicdTamGiac(Point point1, Point point2, Point point3){
+        if  (!CheckAlignment(point1, point2, point3)){
+            double chuvi = ChuViTamGia(point1, point2, point3);
+            double d1 = Length2Poin(point1,point2);
+            double d2 = Length2Poin(point2,point3);
+            double d3 = Length2Poin(point1,point3);
+            return Math.sqrt((chuvi*(chuvi-d1)*(chuvi-d2)*(chuvi-d3)));
+        }
+        return 0.0;
+    }
+
+    public static void main(String[] args) {
+        Point point1 = new Point(5,4);
+        Point point2 = new Point(2,6);
+        Point point3 = new Point(8,6);
+        System.out.println("Thang hang: " + CheckAlignment(point1, point2, point3));
+        System.out.println("Chu vi: " + ChuViTamGia(point1, point2, point3));
+        System.out.println("Din Tich: " + ChuViTamGia(point1, point2, point3));
     }
 
 }
