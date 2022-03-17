@@ -1,4 +1,5 @@
-import java.math.*;
+import java.util.Scanner;
+
 class Point {
     private double x;
     private double y;
@@ -62,12 +63,40 @@ class Point {
     }
 
     public static void main(String[] args) {
-        Point point1 = new Point(5,4);
-        Point point2 = new Point(2,6);
-        Point point3 = new Point(8,6);
+        Scanner sc = new Scanner(System.in);
+        double x,y;
+        
+        // Điem 1
+        System.out.println("Nhap Diem 1: ");
+        System.out.print("Nhap x: ");
+        x = sc.nextDouble();
+        System.out.print("Nhap y: ");
+        y = sc.nextDouble();
+
+        Point point1 = new Point(x,y);
+
+        // Diem 2
+        System.out.println("Nhap Diem 2: ");
+        System.out.print("Nhap x: ");
+        x = sc.nextDouble();
+        System.out.print("Nhap y: ");
+        y = sc.nextDouble();
+
+        Point point2 = new Point(x,y);
+
+        //  Diem 3
+        System.out.println("Nhap Diem 3: ");
+        System.out.print("Nhap x: ");
+        x = sc.nextDouble();
+        System.out.print("Nhap y: ");
+        y = sc.nextDouble();
+
+        Point point3 = new Point(x,y);
+        
+        System.out.println("------------OUT-------------");
         System.out.println("Thang hang: " + CheckAlignment(point1, point2, point3));
         System.out.println("Chu vi: " + ChuViTamGia(point1, point2, point3));
-        System.out.println("Din Tich: " + ChuViTamGia(point1, point2, point3));
+        System.out.println("Din Tich: " + DienTicdTamGiac(point1, point2, point3));
     }
 
 }
