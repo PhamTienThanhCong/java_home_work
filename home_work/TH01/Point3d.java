@@ -11,7 +11,7 @@ public class Point3d extends Point {
     }
     public Point3d(Point3d p) {
         super(p.x, p.y);
-        this.z = z;
+        this.z = p.z;
     }
     public Point3d(Point p, double z) {
         super(p);
