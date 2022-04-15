@@ -67,26 +67,39 @@ public class Point {
         double ChuVi = ab + ac + bc;
         return Math.sqrt(ChuVi*(ChuVi - ab)*(ChuVi - bc)*(ChuVi - ac));
     }
+    
+    public static String PtDuongThang(Point a, Point b){
+        // double vectorA = b.getX() - a.getX();
+        // double vectorB = b.getY() - a.getY();
+        double vtptX = a.getY() - b.getY();
+        double vtptY = b.getX() - a.getX();
+
+        double kqdv = 0 - vtptX * a.getX() - vtptY * a.getY(); 
+
+        String vt = ""+ vtptX + "x + " + vtptY + "y" + " + " + kqdv + " = 0";
+        return vt;
+
+    } 
 
     public static void main(String[] args) {
         Point p1 = new Point();
         Point p2 = new Point();
-        Point p3 = new Point();
+        // Point p3 = new Point();
         System.out.println("Diem 1: ");
         p1.getNewValue();
 
         System.out.println("Diem 2: ");
         p2.getNewValue();
 
-        System.out.println("Diem 3: ");
-        p3.getNewValue();
+        // System.out.println("Diem 3: ");
+        // p3.getNewValue();
 
-        if (checkThangHang(p1, p2, p3)) {
-            System.out.println("Dien Tich La: " + DienTich(p1, p2, p3));
-        }else{
-            System.out.println("3 Diem Thang Hang");
-        }
-
+        // if (checkThangHang(p1, p2, p3)) {
+        //     System.out.println("Dien Tich La: " + DienTich(p1, p2, p3));
+        // }else{
+        //     System.out.println("3 Diem Thang Hang");
+        // }
+        System.out.println(PtDuongThang(p1,p2));
     }
 
 }
