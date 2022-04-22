@@ -39,7 +39,7 @@ public class StackLinkedList implements StackInterface{
             return 0;
         }
         unSize();   
-        return ll.pop();
+        return ll.pollLast();
     }
 
     @Override
@@ -48,7 +48,7 @@ public class StackLinkedList implements StackInterface{
             System.out.print("Ngan Xep Rong");
             return 0;
         }
-        return ll.peek();
+        return ll.getLast();
     }
 
     @Override
