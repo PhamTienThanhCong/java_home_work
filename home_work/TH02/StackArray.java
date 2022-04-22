@@ -4,8 +4,12 @@ public class StackArray implements StackInterface{
     private int size;
     private ArrayList<Integer> arr;
     public StackArray(){
-        size = 0;
-        arr = new ArrayList<Integer>();;
+        this.size = 0;
+        this.arr = new ArrayList<Integer>();;
+    }
+    public StackArray(StackArray arr){
+        this.size = arr.Size(); 
+        this.arr = arr.arr;
     }
     private void upSize(){
         this.size++;
@@ -41,13 +45,19 @@ public class StackArray implements StackInterface{
     public int Size() {
         return this.size;
     }
-    public static void main(String[] args) {
-        StackArray stack = new StackArray();
-        stack.Push(12);
-        stack.Push(123);
-        System.out.println(stack.Pop());
-        System.out.println(stack.Pop());
-        System.out.println(stack.Pop());
+    @Override
+    public void printList() {
+        StackArray newLL = new StackArray(this);
+        while(this.Size()>0){
+            System.out.print(this.Pop() +" ");
+        }
+        
+    }
+    @Override
+    public void setArray(int arr[]) {
+        for (int i = 0; i < arr.length; i++){
+            Push(arr[i]);
+        }
     }
 
 }

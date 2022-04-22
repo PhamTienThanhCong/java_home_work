@@ -3,4 +3,6 @@ interface StackInterface{
     public int Pop();
     public int Peek();
     public int Size();
+    public void printList();
+    public void setArray(int arr[]);
 }
