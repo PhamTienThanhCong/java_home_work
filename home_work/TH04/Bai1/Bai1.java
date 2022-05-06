@@ -39,7 +39,6 @@ public class Bai1 {
             for (int i = 0; i < data.size(); i++) {
                 myWriter.write(data.get(i) + " ");
             }
-            // myWriter.write("Files in Java might be tricky, but it is fun enough!");
             myWriter.close();
         } catch (IOException e) {
             System.out.println("An error occurred.");
