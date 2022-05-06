@@ -60,8 +60,8 @@ public class Student {
     }
 
     public static void main(String[] args) {
-        Student st1 = new Student(12, "Cong", 2);
-        st1.setSubject();
+        Student[] st1 = new Student[10];
+        
     }
 
 }
