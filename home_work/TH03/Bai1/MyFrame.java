@@ -1,4 +1,4 @@
-package Bai1;
+// package Bai1;
 
 //---------------------------------------------------------------
 import java.awt.*;
@@ -21,10 +21,11 @@ public class MyFrame extends JFrame {
 
     MyFrame() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.setTitle("My Clock Program");
+        this.setTitle("Dong Ho Don Gian");
         this.setLayout(new FlowLayout());
         this.setSize(350, 200);
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
 
         timeFormat = new SimpleDateFormat("hh:mm:ss a");
         dayFormat = new SimpleDateFormat("EEEE");
