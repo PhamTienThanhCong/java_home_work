@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+
 public class CreateFibonaci{
 
     public static int fibonacci(int n) {
@@ -19,13 +23,15 @@ public class CreateFibonaci{
         return fn;
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+        PrintWriter writer = new PrintWriter("dataFibonaci.txt", "UTF-8");
         for (int i = 0; i < 1000; i++) {
             if (fibonacci(i) < 1000){
-                System.out.print(fibonacci(i) + " ");
+                writer.println(fibonacci(i)+"");
             }else{
                 break;
             }
         }
+        writer.close();
     }
 }
