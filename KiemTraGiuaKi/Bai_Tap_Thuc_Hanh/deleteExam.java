@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class HW3 {
+public class deleteExam {
     public static void main(String[] args) {
         try (
                 Connection conn = DriverManager.getConnection(

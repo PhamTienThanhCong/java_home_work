@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class HW1 {
+public class selectExam {
     public static void main(String[] args) {
         try (
                 Connection conn = DriverManager.getConnection(

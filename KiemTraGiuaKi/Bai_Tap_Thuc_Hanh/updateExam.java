@@ -1,6 +1,6 @@
 import java.sql.*;
 
-public class HW2 {
+public class updateExam {
     public static void main(String[] args) {
         try (
                 Connection conn = DriverManager.getConnection(
