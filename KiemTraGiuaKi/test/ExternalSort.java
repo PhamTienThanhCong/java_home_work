@@ -7,14 +7,19 @@ import java.io.PrintWriter;
 import java.util.Arrays;
 
 public class ExternalSort {
-    static int N = 2000000;
-    static int M = 100000;
-
-    public static void externalSort(String fileIn, String fileOut) {
-        String tfile = "data/temp-file-";
-        int[] buffer = new int[M < N ? M : N];
+    public static void externalSort(String fileIn, String fileOut, int M) {
+        int N = 0;
 
         try {
+            FileReader fr1 = new FileReader(fileIn);
+            BufferedReader br1 = new BufferedReader(fr1);
+            while (br1.readLine() != null){
+                N++;
+            }
+
+            String tfile = "data/temp-file-";
+            int[] buffer = new int[M < N ? M : N];
+
             FileReader fr = new FileReader(fileIn);
             BufferedReader br = new BufferedReader(fr);
             int slices = (int) Math.ceil((double) N / M);
@@ -40,6 +45,8 @@ public class ExternalSort {
 
                 pw.close();
                 fw.close();
+                double p = ((double)i/(double)(slices-1))*100;
+                // System.out.println((int)p+"%");
             }
 
             br.close();
@@ -51,6 +58,8 @@ public class ExternalSort {
             for (i = 0; i < slices; i++) {
                 brs[i] = new BufferedReader(new FileReader(tfile + Integer.toString(i) + ".txt"));
                 String t = brs[i].readLine();
+                double p = ((double)i/(double)(slices))*100;
+                // System.out.println((int)p+"%");
                 if (t != null)
                     topNums[i] = Integer.parseInt(t);
                 else
@@ -73,6 +82,10 @@ public class ExternalSort {
 
                 pw.println(min);
                 String t = brs[minFile].readLine();
+
+                double p = ((double)i/(double)(N-1))*100;
+                // System.out.println((int)p+"%");
+
                 if (t != null)
                     topNums[minFile] = Integer.parseInt(t);
                 else
@@ -94,6 +107,6 @@ public class ExternalSort {
     public static void main(String[] args) {
         String file_in = "./input.txt";
         String file_out = "./external-sorted.txt";
-        externalSort(file_in, file_out);
+        externalSort(file_in, file_out, 100000);
     }
 }
